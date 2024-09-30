@@ -22,7 +22,10 @@ module.exports = {
       colors: {
         customBlue: '#1355A9',
         customGreen: '#94C83F',
-      }
+      },
+      screens: {
+        'tablet': { 'raw': '(min-width: 768px) and (min-height: 1024px)' },
+      },
     }
   },
   plugins: [],

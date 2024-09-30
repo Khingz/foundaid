@@ -1,13 +1,50 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { FormInput, TextArea } from "../components/ui/formElements";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
 
 const ContactUs = () => {
     return (
-        <div className="mb-10">
-            <h1 className="bg-black pt-24 text-[3rem] text-gray-200 px-2">Contact Us</h1>
-            <p className="px-2">Get in touch with us</p>
-            <p className="mb-5 px-2 text-4xl text-center">COMING SOON</p>
-            <Link to={"/"} className="border border-black py-2 px-4 mx-2">Back Home</Link>
+        <div className="mb-20">
+            <div className="bg-[#333] pt-24 px-2 pb-2"></div>
+            <div className="md:w-[80%] tablet:w-[100%] flex flex-col md:flex-row justify-start md:justify-between items-center px-6 mt-10 md:mt-20 mx-auto gap-6">
+                <div className="w-full md:w-[40%] tablet:w-[100%]">
+                    <p className="text-lg font-extralight">We're here to help and answer any questions you might have. Reach out to us through the following channels, and we'll get back to you as soon as possible</p>
+                    <div className="my-4">
+                        <h4 className="text-lg font-bold">Our Ofiice Address</h4>
+                        <p className="text-lg font-extralight">Plot 123, ABC Street, XYZ City, State</p>
+                    </div>
+                    <div className="my-4">
+                        <h4 className="text-lg font-bold">Our Contact</h4>
+                        <p className="text-lg font-extralight"><span></span>Phone: XXXXXXXXXXX</p>
+                        <p className="text-lg font-extralight"><span></span>Email: example@email.com</p>
+                    </div>
+                    <div className="my-4">
+                        <h4 className="text-lg font-bold mb-4">Follow Us</h4>
+                        <div className="flex justify-start items-center gap-3">
+                            <a href="example.com" target="_blank">
+                                <FaFacebookF className="text-customBlue text-xl"/>
+                            </a>
+                            <a href="example.com" target="_blank">
+                                <FaTwitter className="text-customBlue text-xl" />
+                            </a>
+                            <a href="example.com" target="_blank">
+                                <RiInstagramFill className="text-customBlue text-xl" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="border w-full md:w-[40%] tablet:w-[100%] mx-auto text-center py-10 shadow-md">
+                    <h1 className="text-[1.5rem] md:text-[2rem] px-2">Get in touch with us</h1>
+                    <form>
+                        <FormInput placeholder={"Fullname"} type={"text"} classNames={"w-[90%]"}/>
+                        <FormInput placeholder={"Email"} type={"text"} classNames={"w-[90%]"}/>
+                        <TextArea classNames={"w-[90%]"} placeholder={"Leave a message"}/>
+                        <FormInput type={"submit"} classNames={"w-[90%] bg-customBlue text-white"} value={"Submit"}/>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }
