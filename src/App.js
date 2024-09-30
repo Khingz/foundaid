@@ -10,10 +10,11 @@ import Footer from './components/Footer';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import ComingSoon from './pages/ComingSoon';
+import VolunteerPage from './pages/Volunteer';
 
 function App() {
   return (
-    <div className='min-h-screen m-0 p-0 overflow-x-hidden box-border scroll-smooth font-primary-font'>
+    <div className='min-h-screen m-0 p-0 overflow-x-hidden box-border scroll-smooth font-primary-font text-[#333]'>
       <Router>
         <Nav />
         <Routes>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/career" element={<ComingSoon />} />
           <Route path="/media" element={<ComingSoon />} />
+          <Route path='/volunteer' element={<VolunteerPage />} />
           <Route path="*" element={<NotFound />} />
           
           {/* Route that shouldn't be accessible if the user is logged in */}

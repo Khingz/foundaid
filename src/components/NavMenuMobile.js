@@ -2,13 +2,13 @@ import React from "react";
 import { useCustomNav } from "../hooks/useCustomNavigation";
 import { NavLink } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
-import { getNavLinkClass } from "../utils/getActiveList";
+import { getNavLinkClass } from "../utils/navUtils";
 
 const NavMenuMobile = () => {
     const {handleToggle} = useCustomNav();
 
     return (
-        <div className="bg-black text-white h-screen w-screen relative">
+        <div className="bg-[#333] text-white h-screen w-screen relative">
             <div className="flex justify-end p-[2rem]" onClick={handleToggle}>
                 <IoCloseOutline size={30} className="text-white text-right " />
             </div>

@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import Logo from "../assets/images/logo.png";
 
 const Footer = () => {
     return (
-        <div className="bg-black text-white font-extralight flex flex-col items-center justify-center gap-6 py-16">
+        <div className="bg-customBlue text-white font-extralight flex flex-col items-center justify-center gap-6 py-16">
             <div className="md:w-3/4 w-full flex flex-col md:flex-row justify-between px-4 gap-4">
                 <div className="w-full mb-8">
-                    <h1 className="font-bold text-2xl mb-4">FOUNDAID</h1>
+                    <div className="bg-white inline-block mb-3">
+                        <img src={Logo} alt="logo" className="w-[150px] md:w-[200px]" />
+                    </div>
                     <div className="flex flex-col gap-2">
                         <Link to={"/about"}>About Us</Link>
                         <Link to={"/career"}>Privacy Policy</Link>

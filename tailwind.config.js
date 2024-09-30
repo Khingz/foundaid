@@ -18,6 +18,10 @@ module.exports = {
       fontSize: {
         '10xl': '9rem',
         '11xl': '10rem', 
+      },
+      colors: {
+        customBlue: '#1355A9',
+        customGreen: '#94C83F',
       }
     }
   },
