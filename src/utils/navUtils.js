@@ -22,8 +22,8 @@ export const navLinks = [
     url: '/media',
   },
   {
-    name: 'Our Work',
-    url: '/our-work',
+    name: 'Volunteer',
+    url: '/volunteer',
   },
   {
     name: 'News & Events',

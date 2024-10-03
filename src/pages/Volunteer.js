@@ -6,7 +6,7 @@ const VolunteerPage = () => {
         <div className="mb-20">
             <div className="bg-[#333] pt-24 px-2 pb-2"></div>
             <div className="border md:w-[40%] w-[95%] mx-auto text-center mt-20 py-10 shadow-md">
-                <h1 className="text-[2.2rem] md:text-[2.5rem] px-2">Become a Volunteer</h1>
+                <h1 className="text-[2rem] md:text-[2.5rem] px-3">Become a Volunteer</h1>
                 <p className="w-[80%] md:text-lg font-extralight mx-auto text-sm">Your time and skills can change lives. Join our dedicated community of volunteers and help create a lasting impact in the lives of those in need.</p>
                 <form className=" text-center py-6">
                     <FormInput placeholder={"Fullname"} type={"text"} classNames={"w-[90%] "}/>
@@ -20,7 +20,7 @@ const VolunteerPage = () => {
                     <FormInput placeholder={"Twitter handle"} type={"text"} classNames={"w-[90%]"}/>
                     <FormInput placeholder={"Occupation handle"} type={"text"} classNames={"w-[90%]"}/>
                     <div>
-                        <label className="flex text-lg font-extralight text-gray-400 md:ml-[3rem] ml-[1.5rem] mt-2">Date of birth</label>
+                        <label className="flex text-sm md:text-lg font-extralight text-gray-400 md:ml-[3rem] ml-[1.5rem] mt-2">Date of birth</label>
                         <FormInput placeholder={"Date of Birth"} type={"date"} classNames={"w-[90%]"}/>
                     </div>
                     <TextArea classNames={"w-[90%]"} placeholder={"What are your reasons for volunteering?"}/>

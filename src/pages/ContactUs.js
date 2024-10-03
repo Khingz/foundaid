@@ -3,6 +3,8 @@ import { FormInput, TextArea } from "../components/ui/formElements";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import { MdOutlinePhone } from "react-icons/md";
+import { TfiEmail } from "react-icons/tfi";
 
 const ContactUs = () => {
     return (
@@ -17,8 +19,8 @@ const ContactUs = () => {
                     </div>
                     <div className="my-4">
                         <h4 className="text-lg font-bold">Our Contact</h4>
-                        <p className="text-lg font-extralight"><span></span>Phone: XXXXXXXXXXX</p>
-                        <p className="text-lg font-extralight"><span></span>Email: example@email.com</p>
+                        <p className="flex justify-start items-center text-lg gap-2 font-extralight"><span><MdOutlinePhone /></span> XXXXXXXXXXX</p>
+                        <p className="flex justify-start items-center gap-2 text-lg font-extralight"><span><TfiEmail /></span> example@email.com</p>
                     </div>
                     <div className="my-4">
                         <h4 className="text-lg font-bold mb-4">Follow Us</h4>

@@ -11,11 +11,15 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import ComingSoon from './pages/ComingSoon';
 import VolunteerPage from './pages/Volunteer';
+import { ScrollManager, ScrollToTop } from './utils/scrollUtils';
+import DonatePage from './pages/Donate';
 
 function App() {
   return (
     <div className='min-h-screen m-0 p-0 overflow-x-hidden box-border scroll-smooth font-primary-font text-[#333]'>
       <Router>
+        <ScrollToTop />
+        <ScrollManager />
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +27,9 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/career" element={<ComingSoon />} />
           <Route path="/media" element={<ComingSoon />} />
+          <Route path="/news-events" element={<ComingSoon />} />
           <Route path='/volunteer' element={<VolunteerPage />} />
+          <Route path='/donate' element={<DonatePage />} />
           <Route path="*" element={<NotFound />} />
           
           {/* Route that shouldn't be accessible if the user is logged in */}
