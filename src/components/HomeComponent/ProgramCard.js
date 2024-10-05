@@ -6,7 +6,7 @@ const ProgramCard = ({title, description, image}) => {
             <div>
                 <img src={image} alt='project card' className='h-[200px] w-[100%] mx-auto'/>
             </div>
-            <h3 className='text-xl font-bold mt-4 uppercase px-2 text-gray-900'>{title}</h3>
+            <h3 className='text-xl font-semibold mt-4 capitalize px-2 text-gray-900'>{title}</h3>
             <p className='text-[1rem] font-light px-2 text-gray-700'>{description}</p>
         </div>
     )

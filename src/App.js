@@ -13,6 +13,7 @@ import ComingSoon from './pages/ComingSoon';
 import VolunteerPage from './pages/Volunteer';
 import { ScrollManager, ScrollToTop } from './utils/scrollUtils';
 import DonatePage from './pages/Donate';
+import NewsAndEvents from './pages/News&Eevents';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/career" element={<ComingSoon />} />
           <Route path="/media" element={<ComingSoon />} />
-          <Route path="/news-events" element={<ComingSoon />} />
+          <Route path="/news-events" element={<NewsAndEvents />} />
           <Route path='/volunteer' element={<VolunteerPage />} />
           <Route path='/donate' element={<DonatePage />} />
           <Route path="*" element={<NotFound />} />

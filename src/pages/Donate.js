@@ -34,6 +34,9 @@ const DonatePage = () => {
                             <li className="text-lg font-extralight">15% Administration and Operations</li>
                             <li className="text-lg font-extralight">5% Fundraising</li>
                         </ul>
+                        <p className="text-lg font-extralight">
+                        For every $1 donated, $0.80 goes directly to our field programs, ensuring maximum impact for the communities we serve.
+                        </p>
                     </div>
                     <div className="my-4">
                         <h4 className="text-lg font-bold">Bank Details</h4>
