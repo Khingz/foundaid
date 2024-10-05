@@ -4,10 +4,15 @@ import AboutSection from "../components/HomeComponent/AboutSection";
 import ProgramSection from "../components/HomeComponent/Programs";
 import VolunteerSection from "../components/HomeComponent/Volunteer";
 import PartnersSection from "../components/HomeComponent/PartnersSection";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     return (
         <>
+            <Helmet>
+                <title>Foundaid America - Home</title>
+                <meta name='description' content='Welcome to foundaid america. We are a voluntary organisation that foster community development, education etc' />
+            </Helmet>
             <div className="">
                 <HeroSection />
             </div>

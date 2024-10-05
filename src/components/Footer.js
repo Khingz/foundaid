@@ -47,7 +47,7 @@ const Footer = () => {
                     </form>
                 </div>
             </div>
-            <p>© 2024 FoundAid All Rights Reserved</p>
+            <p>© 2024 Foundaid America All Rights Reserved</p>
         </div>
     )
 }

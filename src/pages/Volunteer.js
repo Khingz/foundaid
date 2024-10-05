@@ -1,9 +1,14 @@
 import React from "react";
 import {FormInput, TextArea} from "../components/ui/formElements";
+import { Helmet } from "react-helmet-async";
 
 const VolunteerPage = () => {
     return (
         <div className="mb-20">
+            <Helmet>
+                <title>Foundaid America - Volunteer</title>
+                <meta name='description' content='Become a volunteer for foundaid america' />
+            </Helmet>
             <div className="bg-[#333] pt-24 px-2 pb-2"></div>
             <div className="border md:w-[40%] w-[95%] mx-auto text-center mt-20 py-10 shadow-md">
                 <h1 className="text-[2rem] md:text-[2.5rem] px-3">Become a Volunteer</h1>

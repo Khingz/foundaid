@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FormInput } from "../components/ui/formElements";
 import { FaCcPaypal } from "react-icons/fa";
 import { convertToTwoDecimal, digitOnly } from "../utils/handleDigit";
+import { Helmet } from "react-helmet-async";
 
 const DonatePage = () => {
     const [amount, setAmount] = useState("");
@@ -17,6 +18,10 @@ const DonatePage = () => {
 
     return (
         <div className="mb-20">
+            <Helmet>
+                <title>Foundaid America - Donate</title>
+                <meta name='description' content='Support our cause. Donate to help foundaid america push her mission' />
+            </Helmet>
             <div className="bg-[rgb(51,51,51)] pt-24 px-2 pb-2"></div>
             <div className="md:w-[80%] tablet:w-[100%] flex flex-col md:flex-row justify-start md:justify-between items-center px-6 mt-10 md:mt-20 mx-auto gap-6">
                 <div className="w-full md:w-[40%] tablet:w-[100%]">

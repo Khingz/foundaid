@@ -5,10 +5,15 @@ import { FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { MdOutlinePhone } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
+import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
     return (
         <div className="mb-20">
+            <Helmet>
+                <title>Foundaid America - Contact Us</title>
+                <meta name='description' content='Get in touch with us. We are ready to hear from you' />
+            </Helmet>
             <div className="bg-[#333] pt-24 px-2 pb-2"></div>
             <div className="md:w-[80%] tablet:w-[100%] flex flex-col md:flex-row justify-start md:justify-between items-center px-6 mt-10 md:mt-20 mx-auto gap-6">
                 <div className="w-full md:w-[40%] tablet:w-[100%]">

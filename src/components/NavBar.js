@@ -22,7 +22,9 @@ const Nav = () => {
     return (
         <nav className={`fixed w-full top-0 z-50 transition-colors duration-300 ${isScrolled ? "bg-[rgba(255,255,255,0.9)] shadow-lg" : "bg-transparent text-white"} flex justify-between items-center md:py-[1rem] py-[1.3rem] px-[1.5rem] md:gap-1`}>
             <div className="">
-                <img src={Logo} alt="logo" className="w-[150px] md:w-[200px]" />
+                <Link to={"/"}>
+                    <img src={Logo} alt="logo" className="w-[150px] md:w-[200px]" />
+                </Link>
             </div>
             <div className="flex items-center justify-end gap-10">
                 {

@@ -4,33 +4,43 @@ import { coreValues } from "../utils/coreValues";
 import CoreValues from "../components/coreValues";
 import founderImg from "../assets/images/founder.png"
 import MapChart from "../components/Map";
+import { Helmet } from "react-helmet-async";
 
 
 const AboutUs = () => {
   return (
     <div className="mb-8">
+      <Helmet>
+        <title>Foundaid America -About Us</title>
+        <meta name='description' content='Know more about Foundaid America in our about us page' />
+      </Helmet>
       <div className="bg-[rgb(51,51,51)] pt-24 px-2 pb-2"></div>
       <div className="md:w-5/6 gap-4 text-left mt-10 flex flex-col justify-start items-start md:px-10 px-3 mb-10">
         <SectionHeader name={"About Us"} />
         <p className="text-lg font-extralight">
-          FoundAid is committed to empowering communities through a
-          comprehensive approach that focuses on sustainable development,
-          education, and healthcare initiatives. By addressing these key areas,
-          we aim to create lasting, transformative change that not only meets
-          immediate needs but also builds a foundation for future generations to
-          thrive. Through collaboration with local partners and a deep
-          understanding of community dynamics, we strive to create opportunities
-          that inspire hope, foster growth, and contribute to a brighter, more
-          sustainable future for all.
+        At FoundAid America, we believe in the power of community and compassion. Our mission is simple yet profound: to bridge the gap between those in need and those with the heart to help. Founded on the principle that every individual deserves the opportunity to live with dignity, we are committed to creating sustainable solutions for vulnerable communities. From supporting families facing economic hardship to providing educational opportunities for underprivileged children, our work is rooted in one core belief — together, we can make a difference.
+        </p>
+        <p className="text-lg font-extralight">
+        We understand that behind every need, there’s a human story. Maybe it’s a single mother struggling to put food on the table, a child who dreams of going to school but can’t afford the supplies, or a family trying to rebuild after losing everything. These stories fuel our passion and purpose. They remind us that life’s challenges can be overwhelming, but with the right support, they are not insurmountable.<br></br>
+        What sets FoundAid America apart is our commitment to personal connection. We don’t just send money or supplies and walk away. We build relationships with the communities we serve. We listen to their needs, and we collaborate with them to find lasting solutions. Whether it’s organizing food drives, sponsoring educational programs, or providing medical assistance, we tailor our efforts to make the most meaningful impact.
+        </p>
+        <p className="text-lg font-extralight">
+        Our work is built on trust, transparency, and accountability. We believe that every dollar donated and every hour volunteered should make a direct, measurable difference. That’s why we work tirelessly to ensure that resources are used efficiently and effectively, reaching those who need them most. When you support FoundAid America, you become part of a family dedicated to uplifting others, giving not just what is needed but also restoring hope and dignity.
+        </p>
+        <p className="text-lg font-extralight">
+        But we can’t do this alone. We need you. Whether through donations, volunteer work, or spreading awareness, your involvement helps us reach more people, impact more lives, and create a ripple effect of positive change. Together, we can offer more than aid. We can offer hope, opportunity, and the chance for a better tomorrow. <br></br>
+        At FoundAid America, we believe in the power of community. We believe in you. And we believe that together, we can change lives — one story at a time.
         </p>
       </div>
       <div className="w-screen flex justify-between md:flex-row flex-col md:px-10 px-3 gap-4 md:gap-20">
         <div className="w-full md:w-[60%]">
             <h2 className="text-customBlue text-3xl font-semibold mb-4">Our Story</h2>
-            <p className="text-lg font-extralight mb-8">FoundAid was established in 2024 by our founder, Ubong David Akpan. Growing up in southern Nigeria, Ubong witnessed firsthand the challenges faced by many in his community, including issues related to healthcare, education, poverty, and inequality. His deep understanding of these struggles fueled his desire to make a difference. Through FoundAid, he aims to uplift thousands of underserved individuals across African society, providing support and resources to help them overcome these obstacles and improve their lives.
+            <p className="text-lg font-extralight mb-8">Foundaid America was established in 2024 by our founder, Ubong David Akpan. Growing up in southern Nigeria, Ubong witnessed firsthand the challenges faced by many in his community, including issues related to healthcare, education, poverty, and inequality. His deep understanding of these struggles fueled his desire to make a difference. Through Foundaid America, he aims to uplift thousands of underserved individuals across African society, providing support and resources to help them overcome these obstacles and improve their lives.
             </p>
             <h2 className="text-customBlue text-3xl font-semibold mb-2">Vision, Mission & Values</h2>
-            <p className="text-lg font-extralight">A world where every community has the resources and opportunities to thrive. Mission: To empower communities through sustainable development initiatives, focusing on education, healthcare, and economic empowerment.
+            <p className="text-lg font-extralight">A world where every community is equipped with the resources and opportunities to flourish, fostering lasting growth and well-being.
+            </p>
+            <p className="text-lg font-extralight">To uplift communities by driving sustainable development initiatives centered around education, healthcare, and economic empowerment, ensuring long-term impact and self-sufficiency
             </p>
         </div>
         <div className="w-full md:w-[70%] flex justify-center items-start md:justify-start md:item-start flex-wrap gap-4">
@@ -56,8 +66,8 @@ const AboutUs = () => {
             <span className="block border border-y-gray-200 w-[100px] my-2 mx-auto"></span>
           </p>
           <div className="w-[95%] md:w-[60%] text-lg font-extralight">
-            <p>Ubong David Akpan founded Foundaid with a passion for creating opportunities for children and supporting underserved communities. After witnessing the impact of poverty and limited resources in rural areas, Ubong was moved to take action and create an organization that could address multiple critical issues and make a real difference. With over 15 years of experience in community development, education, and healthcare advocacy, Ubong has been the driving force behind Foundaid's mission</p>
-            <p>Ubong believes in the transformative power of education, healthcare, and community development, and has dedicated her life to these causes. Through Foundaid, he continues to inspire others to join the mission of building resilient communities and creating a better future for all.</p>
+            <p>Ubong David Akpan founded Foundaid America with a passion for creating opportunities for children and supporting underserved communities. After witnessing the impact of poverty and limited resources in rural areas, Ubong was moved to take action and create an organization that could address multiple critical issues and make a real difference. With over 15 years of experience in community development, education, and healthcare advocacy, Ubong has been the driving force behind Foundaid America's mission</p>
+            <p>Ubong believes in the transformative power of education, healthcare, and community development, and has dedicated her life to these causes. Through Foundaid America, he continues to inspire others to join the mission of building resilient communities and creating a better future for all.</p>
           </div>
       </div>
       <div className="flex justify-center items-center flex-col">

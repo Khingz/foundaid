@@ -50,7 +50,7 @@ const HeroCarousel = ({ images, interval = 6000 }) => {
       {/* Text Overlay */}
       <div className="absolute inset-0 flex flex-col items-start justify-center md:px-24 px-6 z-10 bg-[rgba(0,0,0,0.8)]">
         <h1 className="text-4xl md:text-7xl text-left text-white">Empowering Communities, <span className="block">Changing Lives</span></h1>
-        <p className="text-white font-extralight md:text-lg md:w-2/3 md:mt-2 mt-1 mb-4">Join FOUNDAID in making a difference. Together, we can build a better future for underprivileged communities through education, healthcare, and sustainable development.</p>
+        <p className="text-white font-extralight md:text-lg md:w-2/3 md:mt-2 mt-1 mb-4">Join FOUNDAID AMERICA in making a difference. Together, we can build a better future for underprivileged communities through education, healthcare, and sustainable development.</p>
         <Link to={"/volunteer"} className="border border-customBlue hover:bg-customBlue transition-all ease-in-out duration-500 px-10 py-3 text-white text-sm font-light">JOIN OUR MISSION</Link>
 
         {/* Indicators */}

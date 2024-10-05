@@ -17,10 +17,10 @@ export const navLinks = [
     name: 'Contact Us',
     url: '/contact',
   },
-  {
-    name: 'Media',
-    url: '/media',
-  },
+  // {
+  //   name: 'Media',
+  //   url: '/media',
+  // },
   {
     name: 'Volunteer',
     url: '/volunteer',
