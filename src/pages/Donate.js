@@ -28,6 +28,14 @@ const DonatePage = () => {
                     <h4 className="text-2xl md:text-4xl mb-2">Donate to Support Our Cause</h4>
                     <p className="text-lg font-extralight">Your support helps us continue our mission and make a difference. We appreciate every contribution, no matter how big or small. Below are the details for making a local transfer, and if you have any questions or need assistance, feel free to contact us.</p>
                     <div className="my-4">
+                        <h4 className="text-lg font-bold">How Donations Are Used</h4>
+                        <ul className="list-disc ml-5">
+                            <li className="text-lg font-extralight">80% Program Services</li>
+                            <li className="text-lg font-extralight">15% Administration and Operations</li>
+                            <li className="text-lg font-extralight">5% Fundraising</li>
+                        </ul>
+                    </div>
+                    <div className="my-4">
                         <h4 className="text-lg font-bold">Bank Details</h4>
                         <p className="text-lg font-extralight"><span>Bank Name:</span> Example Name</p>
                         <p className="text-lg font-extralight"><span>Account Name:</span> Example Name</p>
