@@ -21,6 +21,12 @@ const AboutUs = () => {
         At FoundAid America, we believe in the power of community and compassion. Our mission is simple yet profound: to bridge the gap between those in need and those with the heart to help. Founded on the principle that every individual deserves the opportunity to live with dignity, we are committed to creating sustainable solutions for vulnerable communities. From supporting families facing economic hardship to providing educational opportunities for underprivileged children, our work is rooted in one core belief — together, we can make a difference.
         </p>
         <p className="text-lg font-extralight">
+        Every story matters. Every life we touch is a testament to the strength of the human spirit. We see the faces of those who have been left behind, and we feel their struggle. But we also see hope — the hope that a caring community like ours can offer. When you join FoundAid America, you’re not just donating money or time. You’re giving hope. You’re offering a lifeline to someone who may feel forgotten.
+        </p>
+        <p className="text-lg font-extralight">
+        Our organization was born out of a desire to help, to be that bridge of hope for individuals who feel like they have nowhere else to turn. The name "FoundAid" reflects our purpose: to help people find the aid they need to rise from hardship and build a brighter future. Over the years, we’ve grown from a small initiative to a movement driven by people like you — compassionate individuals who believe that helping one person may not change the world, but it can change the world for that one person.
+        </p>
+        <p className="text-lg font-extralight">
         We understand that behind every need, there’s a human story. Maybe it’s a single mother struggling to put food on the table, a child who dreams of going to school but can’t afford the supplies, or a family trying to rebuild after losing everything. These stories fuel our passion and purpose. They remind us that life’s challenges can be overwhelming, but with the right support, they are not insurmountable.<br></br>
         What sets FoundAid America apart is our commitment to personal connection. We don’t just send money or supplies and walk away. We build relationships with the communities we serve. We listen to their needs, and we collaborate with them to find lasting solutions. Whether it’s organizing food drives, sponsoring educational programs, or providing medical assistance, we tailor our efforts to make the most meaningful impact.
         </p>

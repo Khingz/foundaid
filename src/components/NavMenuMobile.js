@@ -1,8 +1,8 @@
 import React from "react";
 import { useCustomNav } from "../hooks/useCustomNavigation";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
-import { getNavLinkClass } from "../utils/navUtils";
+import { getNavLinkClass, navLinks } from "../utils/navUtils";
 
 const NavMenuMobile = () => {
     const {handleToggle} = useCustomNav();
@@ -13,11 +13,13 @@ const NavMenuMobile = () => {
                 <IoCloseOutline size={30} className="text-white text-right " />
             </div>
             <div className="flex flex-col justify-start items-start gap-4 px-[2rem] font-extralight">
-                <NavLink to={"/"} className={({ isActive }) => getNavLinkClass(isActive)} onClick={handleToggle}>Home</NavLink>
-                <NavLink to={"/about"} className={({ isActive }) => getNavLinkClass(isActive)} onClick={handleToggle}>About Us</NavLink>
-                <NavLink to={"/contact"} className={({ isActive }) => getNavLinkClass(isActive)} onClick={handleToggle}>Contact Us</NavLink>
-                <NavLink to={"/media"} className={({ isActive }) => getNavLinkClass(isActive)} onClick={handleToggle}>Media</NavLink>
-                <NavLink to={"/career"} className={({ isActive }) => getNavLinkClass(isActive)} onClick={handleToggle}>Carrier</NavLink>
+                {
+                    navLinks.map((link, index) => (
+                        <NavLink key={index} to={link.url} className={({ isActive }) => getNavLinkClass(isActive)} onClick={handleToggle}>{link.name}</NavLink>
+                    ))
+                }
+                <Link to="/donate" className={`border border-customBlue bg-customBlue hover:bg-transparent transition-all duration-500 ease-in-out py-3 px-6 text-lg font-extralight text-white mt-4 w-full text-center`} onClick={handleToggle}>Donate</Link>
+
             </div>
         </div>
     )
