@@ -1,45 +1,71 @@
-import { createContext } from "react";
-// import { googleAuthService, loginService } from "../services/AuthService";
-
+import { createContext, useEffect, useState } from "react";
+import { loginUser, registerUser } from "../service/authService";
+import {
+	getItemFromLocalStorage,
+	removeItemFromLocalStorage,
+	saveToLocalStorage,
+} from "../utils/loalStorage";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    // const [isLoggedIn, setIsLoggedIn] = useState(true);
-    // const [user, setUser] = useState(null);
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [user, setUser] = useState(null);
 
-    // const login = async (credentials) => {
-    //     // setUser("User")
-    //     // const user = await loginService(credentials.email, credentials.password);        
-    // }
+	const login = async (credentials) => {
+		try {
+			const data = await loginUser(credentials);
+			if (data.error) {
+				throw new Error(data.message);
+			}
+			setIsLoggedIn(true);
+			setUser(data.data.user);
+			saveToLocalStorage("user", data.data);
+		} catch (err) {
+			throw err;
+		}
+	};
+  const getCurrentUser = () => {
+    try {
+      const user = getItemFromLocalStorage("user");
+      if (!user) {
+        setIsLoggedIn(false);
+        setUser(null);
+      } else {
+        setIsLoggedIn(true);
+        setUser(user.user);
+      }
+    } catch (err) {
+      console.error("Error fetching user:", err);
+      setIsLoggedIn(false);
+      setUser(null);
+    }
+  };
 
-    // const logout = async () => {
-    //     console.log("Logeeg out");
-    // }
+	const logout = async () => {
+	    removeItemFromLocalStorage("user");
+		setIsLoggedIn(false);
+		setUser(null);
+	}
 
-    // const register = async (credentials) => {
-    //     console.log("Register");
-         
-    // };
+	const register = async (credentials) => {
+		try {
+			const data = await registerUser(credentials);
+			if (data.error) {
+				throw new Error(data.message);
+			}
+		} catch (error) {
+			throw new Error(error.message);
+		}
+	};
 
-    // const googleAuthSignin = async (idToken) => {
-    //     const user = await googleAuthService(idToken)
-    //     console.log(user);
-        
-    // }
+	useEffect(() => {
+		getCurrentUser()
+	}, []);
 
-    // // useEffect(() => {
-    // //     login({ email: "kingsley995mr@gmail.com", password: "pass1A@12345" });
-    // // })
-
-    // return (
-    //     <AuthContext.Provider value={{ isLoggedIn, user, login, logout, register, googleAuthSignin }}>
-    //       {children}
-    //     </AuthContext.Provider>
-    // );
-    return (
-        <AuthContext.Provider value={{}}>
-          {children}
-        </AuthContext.Provider>
-    );
-}
+	return (
+		<AuthContext.Provider value={{ register, isLoggedIn, login, user, logout }}>
+			{children}
+		</AuthContext.Provider>
+	);
+};

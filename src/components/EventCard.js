@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const EventCard = ({maxWidth}) => {
     return (
-        <div className={`flex border p-4 flex-col justify-start items-start gap-4 md:max-w-[${maxWidth}]`}>
+        <div className={`flex border p-4 flex-col justify-start items-start gap-4 md:w-[${maxWidth}]`}>
         {/* Date Section */}
         <div className="flex-shrink-0 text-center pr-4">
           <p className="text-lg font-bold text-gray-600">Oct</p>

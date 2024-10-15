@@ -5,53 +5,74 @@ import { useAuth } from "../../hooks/useAuth";
 import { showToast } from "../../utils";
 import Spinner from "../../components/Spinner";
 
-const Login = () => {
-	const { login } = useAuth();
+const Register = () => {
+	const { register } = useAuth();
 	const navigate = useNavigate();
+	const [fullName, setFullName] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [accessCode, setAccessCode] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setError("")
-		setLoading(true)
+		setError("");
+		setLoading(true);
 		try {
-			if (!username || !password) {
-				setError("Both fields are required.");
-			} else {
-				const data = {
+			if (fullName || username || password || accessCode) {
+				const newUserData = {
+					fullname: fullName,
 					username,
-					password
-				}
-				await login(data);
-				showToast("Login successful.");
-				navigate('/admin');
+					password,
+					access_code: accessCode,
+				};
+				await register(newUserData);
+				showToast("Registration successful. Please login to continue.");
+				navigate("/admin/login");
+				setFullName("");
 				setUsername("");
 				setPassword("");
+				setAccessCode("");
 			}
 		} catch (error) {
 			setError(error.message);
 		} finally {
-			setLoading(false)
+			setLoading(false);
 		}
 	};
 
 	useEffect(() => {
-		setError("")
-	}, [])
+		setError("");
+	}, []);
 
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gray-100">
 			<div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md mx-2">
-				<h2 className="text-2xl font-bold text-center">Login</h2>
+				<h2 className="text-2xl font-bold text-center">Register</h2>
 				<p className="text-lg text-center text-gray-600 font-extralight">
-					Please log in to access the admin panel. Only admins can log in.
+					Please provide your details to create an account. Only admins can
+					register.
 				</p>
 				{error && <p className="text-red-500 text-center">{error}</p>}
 				<form onSubmit={handleSubmit} className="space-y-4">
+					<div>
+						<label
+							htmlFor="fullName"
+							className="block mb-2 text-sm font-medium text-gray-700"
+						>
+							Full Name
+						</label>
+						<input
+							type="text"
+							id="fullName"
+							value={fullName}
+							onChange={(e) => setFullName(e.target.value)}
+							className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							required
+						/>
+					</div>
 					<div>
 						<label
 							htmlFor="username"
@@ -93,19 +114,33 @@ const Login = () => {
 							</button>
 						</div>
 					</div>
+					<div>
+						<label
+							htmlFor="accessCode"
+							className="block mb-2 text-sm font-medium text-gray-700"
+						>
+							Access Code
+						</label>
+						<input
+							type="text"
+							id="accessCode"
+							value={accessCode}
+							onChange={(e) => setAccessCode(e.target.value)}
+							className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							required
+						/>
+					</div>
 					<button
 						type="submit"
-						className="w-full h-[40px] px-4 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex justify-center items-center"
+						className="w-full h-[45px] px-4 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none flex justify-center items-center"
 					>
-						{
-							loading ? <Spinner /> : "Login"
-						}
+						{loading ? <Spinner /> : "Register"}
 					</button>
 				</form>
 				<p className="text-sm text-center text-gray-600">
-					Don't have an account?{" "}
-					<Link to="/admin/register" className="text-blue-500 hover:underline">
-						Register here
+					Already have an account?{" "}
+					<Link to="/admin/login" className="text-blue-500 hover:underline">
+						Login here
 					</Link>
 				</p>
 				<p className="text-sm text-center text-gray-600">
@@ -118,4 +153,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;

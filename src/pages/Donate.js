@@ -5,6 +5,8 @@ import { FormInput } from "../components/ui/formElements";
 import { FaCcPaypal } from "react-icons/fa";
 import { convertToTwoDecimal, digitOnly } from "../utils/handleDigit";
 import { Helmet } from "react-helmet-async";
+import bannerImage from "../assets/images/emergency relieve.jpg";
+import { Banner } from "../components/ui/Banner";
 
 const DonatePage = () => {
     const [amount, setAmount] = useState("");
@@ -22,7 +24,7 @@ const DonatePage = () => {
                 <title>Foundaid America - Donate</title>
                 <meta name='description' content='Support our cause. Donate to help foundaid america push her mission' />
             </Helmet>
-            <div className="bg-[rgb(51,51,51)] pt-24 px-2 pb-2"></div>
+            <Banner image={bannerImage} />
             <div className="md:w-[80%] tablet:w-[100%] flex flex-col md:flex-row justify-start md:justify-between items-center px-6 mt-10 md:mt-20 mx-auto gap-6">
                 <div className="w-full md:w-[40%] tablet:w-[100%]">
                     <h4 className="text-2xl md:text-4xl mb-2">Donate to Support Our Cause</h4>
