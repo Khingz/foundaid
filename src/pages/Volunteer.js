@@ -31,6 +31,8 @@ const VolunteerPage = () => {
 		setError("");
 		setLoading(true);
 		try {
+			console.log(dob);
+			
 			const response = await createVolunteer({
 				email,
 				fullname,
@@ -98,25 +100,31 @@ const VolunteerPage = () => {
 				{error && <p className="text-red-500 text-center mt-3">{error}</p>}
 				<form className=" text-center py-6">
 					<FormInput
-						placeholder={"Fullname"}
+						placeholder={"Enter your fullname"}
 						type={"text"}
 						classNames={"w-[90%] "}
 						value={fullname}
 						onChange={(e) => setFullname(e.target.value)}
+						label={"Fullname"}
+						required={true}
 					/>
 					<FormInput
-						placeholder={"Email"}
+						placeholder={"Enter your email"}
 						type={"email"}
 						classNames={"w-[90%]"}
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						label={"Email"}
+						required={true}
 					/>
 					<FormInput
-						placeholder={"Residential address"}
+						placeholder={"Where do you live?"}
 						type={"text"}
 						classNames={"w-[90%]"}
 						value={address}
 						onChange={(e) => setAddress(e.target.value)}
+						label={"Address"}
+						required={true}
 					/>
 					<FormInput
 						placeholder={"City of residence"}
@@ -124,6 +132,8 @@ const VolunteerPage = () => {
 						classNames={"w-[90%]"}
 						value={city}
 						onChange={(e) => setCity(e.target.value)}
+						label={"City"}
+						required={true}
 					/>
 					<FormInput
 						placeholder={"State of residence"}
@@ -131,6 +141,8 @@ const VolunteerPage = () => {
 						classNames={"w-[90%]"}
 						value={state}
 						onChange={(e) => setState(e.target.value)}
+						label={"State"}
+						required={true}
 					/>
 					<FormInput
 						placeholder={"Country of residence"}
@@ -138,52 +150,61 @@ const VolunteerPage = () => {
 						classNames={"w-[90%]"}
 						value={country}
 						onChange={(e) => setCountry(e.target.value)}
+						label={"Country"}
+						required={true}
 					/>
 					<FormInput
-						placeholder={"Phone number"}
+						placeholder={
+							"Enter your phone number. Seperated by comma if more than one"
+						}
 						type={"text"}
 						classNames={"w-[90%]"}
 						value={phoneNumber}
 						onChange={(e) => setPhoneNumber(e.target.value)}
+						label={"Phone Number(s)"}
+						required={true}
 					/>
 					<FormInput
-						placeholder={"Instagram handle"}
-						type={"text"}
-						classNames={"w-[90%]"}
-						value={instagram}
-						onChange={(e) => setInstagram(e.target.value)}
-					/>
-					<FormInput
-						placeholder={"Facebook handle"}
-						type={"text"}
-						classNames={"w-[90%]"}
-						value={facebook}
-						onChange={(e) => setFacebook(e.target.value)}
-					/>
-					<FormInput
-						placeholder={"Twitter handle"}
-						type={"text"}
-						classNames={"w-[90%]"}
-						value={twitter}
-						onChange={(e) => setTwitter(e.target.value)}
-					/>
-					<FormInput
-						placeholder={"Occupation handle"}
+						placeholder={"What do you do for a living"}
 						type={"text"}
 						classNames={"w-[90%]"}
 						value={occupation}
 						onChange={(e) => setOccupation(e.target.value)}
+						label={"Occupation"}
+						required={true}
+					/>
+					<FormInput
+						placeholder={"Enter your instagram handle"}
+						type={"text"}
+						classNames={"w-[90%]"}
+						value={instagram}
+						onChange={(e) => setInstagram(e.target.value)}
+						label={"Instagram"}
+					/>
+					<FormInput
+						placeholder={"Enter your facebook handle"}
+						type={"text"}
+						classNames={"w-[90%]"}
+						value={facebook}
+						onChange={(e) => setFacebook(e.target.value)}
+						label={"Facebook"}
+					/>
+					<FormInput
+						placeholder={"Enter your twitter handle"}
+						type={"text"}
+						classNames={"w-[90%]"}
+						value={twitter}
+						onChange={(e) => setTwitter(e.target.value)}
+						label={"Twitter"}
 					/>
 					<div>
-						<label className="flex text-sm md:text-lg font-extralight text-gray-400 md:ml-[3rem] ml-[1.5rem] mt-2">
-							Date of birth
-						</label>
 						<FormInput
 							placeholder={"Date of Birth"}
 							type={"date"}
 							classNames={"w-[90%]"}
 							value={dob}
 							onChange={(e) => setDOB(e.target.value)}
+							label={"Date of birth"}
 						/>
 					</div>
 					<TextArea

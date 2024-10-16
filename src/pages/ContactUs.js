@@ -24,10 +24,6 @@ const ContactUs = () => {
 		setError("")
 		setLoading(true);
 		try {
-			if (!email || !fullname || !message) {
-				setError("All fields are required");
-				return;
-			}
 			const response = await createContactUs({ email, fullname, message });
 			if (response.error) {
 				setError(response.message);
@@ -109,18 +105,22 @@ const ContactUs = () => {
 					{error && <p className="text-red-500 text-center mt-3">{error}</p>}
 					<form>
 						<FormInput
-							placeholder={"Fullname"}
+							placeholder={"Enter your fullname"}
 							type={"text"}
 							classNames={"w-[90%]"}
 							value={fullname}
 							onChange={(e) => setFullname(e.target.value)}
+							label={"Fullname"}
+							required={true}
 						/>
 						<FormInput
-							placeholder={"Email"}
+							placeholder={"Enter your email"}
+							label={"Email"}
 							type={"text"}
 							classNames={"w-[90%]"}
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
+							required={true}
 						/>
 						<TextArea
 							classNames={"w-[90%]"}

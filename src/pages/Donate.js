@@ -49,7 +49,7 @@ const DonatePage = () => {
                     <div className="my-4">
                         <h4 className="text-lg font-bold">Phone Support</h4>
                         <p className="text-lg font-extralight">If you encounter any issues or need assistance with your donation, please reach out to us via phone.</p>
-                        <p className="flex justify-start items-center text-lg gap-2 font-extralight"><span><MdOutlinePhone /></span> +1 (XXX) XXXXXXXX</p>
+                        <p className="flex justify-start items-center text-lg gap-2 font-extralight"><span><MdOutlinePhone /></span> +9 1-347-913-7764</p>
                     </div>
                     <p>For further inquiries or support, feel free to visit our <Link to={"/contact"} className="text-customBlue">Contact page </Link>.</p>
                 </div>
