@@ -26,6 +26,7 @@ const Footer = () => {
 				showToast(response.message);
 				return;
 			}
+			showToast("Successfully subscribed")
 		} catch (error) {
 			showToast(error.message);
 		} finally {
