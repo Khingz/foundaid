@@ -25,7 +25,7 @@ export const NotificationProvider = ({ children }) => {
 				unreadCount: notif.unreadCount,
 			}));
 		} catch (error) {
-			throw error;
+			console.log(error)
 		}
 	};
 
