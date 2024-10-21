@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import NotificationItem from "./NotificationItem";
 import DotSpinner from "../Spinner";
 import { useUserNofication } from "../../hooks/useNotification";
 
 const Notification = () => {
 	const { notifications, fetchNotifications } = useUserNofication();
+	const [loading, setLoading] = useState(false);
+	// const notifications = {
+	// 	data: [],
+	// 	currentPage: 1,
+	// 	totalPages: 1,
+	// };
 
 	const markAsRead = (id) => {
 		// setNotifications((prev) =>
@@ -25,8 +31,10 @@ const Notification = () => {
 	};
 
 	const loadMoreNotifications = () => {
+		setLoading(true);
 		// setPage((prevPage) => prevPage + 1);
 		fetchNotifications(notifications?.currentPage + 1);
+		setLoading(false);
 	};
 
 	return (
@@ -42,7 +50,7 @@ const Notification = () => {
 			</div>
 
 			<ul className="divide-y divide-gray-200">
-				{notifications &&
+				{notifications && notifications.data.length > 0 ? (
 					notifications.data.map((notification) => (
 						<NotificationItem
 							key={notification._id}
@@ -50,11 +58,14 @@ const Notification = () => {
 							onMarkAsRead={markAsRead}
 							onDelete={deleteNotification}
 						/>
-					))}
+					))
+				) : (
+					<li className="text-gray-200 text-center py-4">No notifications</li>
+				)}
 			</ul>
 
 			<div className="px-6 py-4">
-				{notifications ? (
+				{loading ? (
 					<DotSpinner />
 				) : (
 					<button

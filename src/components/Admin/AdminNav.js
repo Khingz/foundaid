@@ -30,9 +30,11 @@ const AdminNav = ({ toggleSidenav }) => {
 				<div className="flex items-center space-x-6 cursor-pointer">
 					<div className="relative pointer" onClick={handleNotificationToggle}>
 						<FaBell size={25} className="text-gray-500 hover:text-gray-700" />
-						<span className="absolute -top-4 -right-2 h-6 w-6 text-sm bg-red-400 rounded-full text-white flex items-center justify-center">
-							{notifications && notifications.unreadCount}
-						</span>
+						{
+							notifications && notifications.unreadCount > 0 && <span className="absolute -top-4 -right-2 h-6 w-6 text-sm bg-red-400 rounded-full text-white flex items-center justify-center">
+								{notifications && notifications.unreadCount}
+							</span>
+						}
 					</div>
 					<div className="flex items-center space-x-2">
 						<img
