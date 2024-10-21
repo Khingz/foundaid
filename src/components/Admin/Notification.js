@@ -26,7 +26,7 @@ const Notification = () => {
 
 	const loadMoreNotifications = () => {
 		// setPage((prevPage) => prevPage + 1);
-		fetchNotifications(notifications.currentPage + 1);
+		fetchNotifications(notifications?.currentPage + 1);
 	};
 
 	return (
@@ -60,7 +60,7 @@ const Notification = () => {
 					<button
 						onClick={loadMoreNotifications}
 						className={`w-full ${
-							notifications.currentPage >= notifications.totalPages
+							notifications?.currentPage >= notifications?.totalPages
 								? "bg-gray-300 cursor-not-allowed"
 								: "bg-customBlue hover:bg-blue-400"
 						} text-white px-3 py-2 rounded focus:outline-none`}
