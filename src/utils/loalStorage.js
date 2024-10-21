@@ -20,6 +20,7 @@ export const getItemFromLocalStorage = (key) => {
 		localStorage.removeItem(key);
 		return null;
 	}
+	
 	return item;
 };
 

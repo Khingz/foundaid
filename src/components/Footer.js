@@ -26,7 +26,8 @@ const Footer = () => {
 				showToast(response.message);
 				return;
 			}
-			showToast("Successfully subscribed")
+			setEmail("");
+			showToast("Successfully subscribed");
 		} catch (error) {
 			showToast(error.message);
 		} finally {
@@ -77,15 +78,14 @@ const Footer = () => {
 							type="email"
 							placeholder="Enter your email"
 							className="p-2 text-gray-900"
+							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<button
 							className="border border-white py-2 px-4"
 							onClick={handleSubmit}
 						>
-							{
-								loading ? <Spinner size={5} /> : "Subscribe"
-							}
+							{loading ? <Spinner size={5} /> : "Subscribe"}
 						</button>
 					</form>
 				</div>

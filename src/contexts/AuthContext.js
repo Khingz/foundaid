@@ -11,7 +11,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
 	const [user, setUser] = useState(null);
-
 	const login = async (credentials) => {
 		try {
 			const data = await loginUser(credentials);
@@ -25,28 +24,27 @@ export const AuthProvider = ({ children }) => {
 			throw err;
 		}
 	};
-  const getCurrentUser = () => {
-    try {
-      const user = getItemFromLocalStorage("user");
-      if (!user) {
-        setIsLoggedIn(false);
-        setUser(null);
-      } else {
-        setIsLoggedIn(true);
-        setUser(user.user);
-      }
-    } catch (err) {
-      console.error("Error fetching user:", err);
-      setIsLoggedIn(false);
-      setUser(null);
-    }
-  };
+	const getCurrentUser = () => {
+		try {
+			const user = getItemFromLocalStorage("user");
+			if (!user) {
+				setIsLoggedIn(false);
+				setUser(null);
+			} else {
+				setIsLoggedIn(true);
+				setUser(user.user);
+			}
+		} catch (err) {
+			setIsLoggedIn(false);
+			setUser(null);
+		}
+	};
 
 	const logout = async () => {
-	    removeItemFromLocalStorage("user");
+		removeItemFromLocalStorage("user");
 		setIsLoggedIn(false);
 		setUser(null);
-	}
+	};
 
 	const register = async (credentials) => {
 		try {
@@ -60,7 +58,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		getCurrentUser()
+		getCurrentUser();
 	}, []);
 
 	return (
