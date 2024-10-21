@@ -6,11 +6,8 @@ import { useUserNofication } from "../../hooks/useNotification";
 const Notification = () => {
 	const { notifications, fetchNotifications } = useUserNofication();
 	const [loading, setLoading] = useState(false);
-	// const notifications = {
-	// 	data: [],
-	// 	currentPage: 1,
-	// 	totalPages: 1,
-	// };
+
+	notifications && console.log(notifications);
 
 	const markAsRead = (id) => {
 		// setNotifications((prev) =>
