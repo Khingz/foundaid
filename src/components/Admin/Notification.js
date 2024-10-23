@@ -2,34 +2,34 @@ import React, { useState } from "react";
 import NotificationItem from "./NotificationItem";
 import DotSpinner from "../Spinner";
 import { useUserNofication } from "../../hooks/useNotification";
+import { getItemFromLocalStorage } from "../../utils/loalStorage";
 
 const Notification = () => {
-	const { notifications, fetchNotifications } = useUserNofication();
+	const {
+		notifications,
+		fetchNotifications,
+		markNotificationAsRead,
+		deleteNotification,
+		markAllAsRead
+	} = useUserNofication();
 	const [loading, setLoading] = useState(false);
 
-	notifications && console.log(notifications);
+	const user_id = getItemFromLocalStorage("user")?.user?._id;
 
-	const markAsRead = (id) => {
-		// setNotifications((prev) =>
-		// 	prev.map((notif) =>
-		// 		notif.id === id ? { ...notif, isRead: true } : notif
-		// 	)
-		// );
+	const handleMarkAsRead = (id) => {
+		markNotificationAsRead(id, user_id);
 	};
 
-	const deleteNotification = (id) => {
-		// setNotifications((prev) => prev.filter((notif) => notif.id !== id));
+	const handleDeleteNotification = (id) => {
+		deleteNotification(id, user_id);
 	};
 
-	const markAllAsRead = () => {
-		// setNotifications((prev) =>
-		// 	prev.map((notif) => ({ ...notif, isRead: true }))
-		// );
+	const handleMarkAllAsRead = (user_id) => {
+		markAllAsRead(user_id);
 	};
 
 	const loadMoreNotifications = () => {
 		setLoading(true);
-		// setPage((prevPage) => prevPage + 1);
 		fetchNotifications(notifications?.currentPage + 1);
 		setLoading(false);
 	};
@@ -39,7 +39,7 @@ const Notification = () => {
 			<div className="flex flex-col gap-3 justify-between items-center px-6 py-4">
 				<h2 className="text-white text-lg font-semibold">Notifications</h2>
 				<button
-					onClick={markAllAsRead}
+					onClick={() => handleMarkAllAsRead(user_id)}
 					className="bg-customBlue text-white px-3 py-1.5 rounded hover:bg-blue-600 focus:outline-none"
 				>
 					Mark All as Read
@@ -48,12 +48,19 @@ const Notification = () => {
 
 			<ul className="divide-y divide-gray-200">
 				{notifications && notifications.data.length > 0 ? (
-					notifications.data.map((notification) => (
+					notifications.data.map((notification, index) => (
 						<NotificationItem
-							key={notification._id}
+							key={index}
 							notification={notification}
-							onMarkAsRead={markAsRead}
-							onDelete={deleteNotification}
+							onMarkAsRead={() =>
+								handleMarkAsRead(notification?.notification?._id, user_id)
+							}
+							onDelete={() =>
+								handleDeleteNotification(
+									notification?.notification?._id,
+									user_id
+								)
+							}
 						/>
 					))
 				) : (

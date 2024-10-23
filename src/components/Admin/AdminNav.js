@@ -37,11 +37,7 @@ const AdminNav = ({ toggleSidenav }) => {
 						}
 					</div>
 					<div className="flex items-center space-x-2">
-						<img
-							src="https://via.placeholder.com/40"
-							alt="Profile"
-							className="w-10 h-10 rounded-full"
-						/>
+						<p className="w-[40px] h-[40px] bg-customBlue flex justify-center items-center text-white font-semilight text-xl rounded-full">{user && user?.username[0].toUpperCase()}</p>
 						<span className="text-gray-800 font-extralight">
 							{user && capitalize(user.username)}
 						</span>

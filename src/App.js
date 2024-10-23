@@ -18,6 +18,7 @@ import AdminDashboard from "./pages/Admin/Dashboard";
 import Register from "./pages/Auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EmailSubscribers from "./pages/Admin/EmailSubscribers";
 
 function App() {
 	return (
@@ -51,6 +52,7 @@ function App() {
 						<Route path="/admin/" element={<AdminLayout />}>
 							<Route index element={<Navigate to="/admin/dashboard" />} />
 							<Route path="dashboard" element={<AdminDashboard />} />
+							<Route path="email-subscribers" element={<EmailSubscribers />} />
 							<Route path="users" element={<ComingSoon />} />
 							<Route path="*" element={<ComingSoon/>} />
 						</Route>

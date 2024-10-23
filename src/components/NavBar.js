@@ -52,15 +52,15 @@ const Nav = () => {
 				Donate
 			</Link>
 
-			{
-				isMobile && <div
+			{isMobile && (
+				<div
 					className={`absolute top-0 w-screen min-h-screen transition-all duration-500 ease-in-out ${
 						isOpen ? "left-0" : "-left-[1000px]"
 					}`}
 				>
 					<NavMenuMobile />
 				</div>
-			}
+			)}
 		</nav>
 	);
 };

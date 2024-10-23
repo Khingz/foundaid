@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { fetchUserNotifications } from "../service/notificationService";
 import { useSocket } from "../hooks/useSocket";
+import { getItemFromLocalStorage } from "../utils/loalStorage";
 
 export const NotificationContext = createContext();
 
@@ -35,6 +36,62 @@ export const NotificationProvider = ({ children }) => {
 		setIsNotificationOpen(!isNotificationOpen);
 	};
 
+	const markNotificationAsRead = (notificationId, userId) => {
+		const tmpNotificaion = notifications;
+		const notificationToUpdate = notifications.data.find(
+			(notification) => notification.notification._id === notificationId
+		);
+		setNotifications((prev) => ({
+			...prev,
+			data: prev.data.map((notification) =>
+				notification.notification._id === notificationId
+					? { ...notification, isRead: true }
+					: notification
+			),
+			unreadCount: prev.unreadCount - 1 ? notificationToUpdate.isRead : prev.unreadCount,
+		}));
+		socket.emit("markAsRead", notificationId, userId, (response) => {
+			if (!response.success) {
+				console.log(response.message);
+				setNotifications(tmpNotificaion);
+			}
+		});
+	};
+
+	const deleteNotification = (notificationId, userId) => {
+		const tmpNotificaion = notifications;
+		setNotifications((prev) => ({
+			...prev,
+			data: prev.data.filter(
+				(notification) => notification.notification._id !== notificationId
+			),
+			totalPage: prev.totalPage - 1,
+			unreadCount: prev.unreadCount - 1,
+		}));
+		socket.emit("deleteNotification", notificationId, userId, (response) => {
+			if (!response.success) {
+				setNotifications(tmpNotificaion);
+			}
+		});
+	};
+
+	const markAllAsRead = (userId) => {
+		const tmpNotification = notifications;
+		setNotifications((prev) => ({
+			...prev,
+			data: prev.data.map((notification) => ({
+				...notification,
+				isRead: true,
+			})),
+			unreadCount: 0,
+		}));
+		socket.emit("markAllAsRead", userId, response => {
+			if (!response.success) {
+				setNotifications(tmpNotification);
+			}
+		});
+	};
+
 	useEffect(() => {
 		fetchNotifications();
 		// eslint-disable-next-line
@@ -43,10 +100,11 @@ export const NotificationProvider = ({ children }) => {
 	useEffect(() => {
 		if (socket) {
 			socket.on("newNotification", (notification) => {
+				const user_id = getItemFromLocalStorage("user")?.user?._id;
 				const formattedNotification = {
 					isDeleted: false,
 					isRead: false,
-					user: null,
+					user: user_id || null,
 					notification: { ...notification.message },
 				};
 
@@ -59,6 +117,8 @@ export const NotificationProvider = ({ children }) => {
 					};
 				});
 			});
+
+			socket.on("", (notification) => {});
 
 			return () => {
 				socket.off("notification");
@@ -74,6 +134,9 @@ export const NotificationProvider = ({ children }) => {
 				handleNotificationToggle,
 				isNotificationOpen,
 				setNotifications,
+				deleteNotification,
+				markNotificationAsRead,
+				markAllAsRead,
 			}}
 		>
 			{children}

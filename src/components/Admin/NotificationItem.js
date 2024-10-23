@@ -17,14 +17,14 @@ const NotificationItem = ({ notification, onMarkAsRead, onDelete }) => {
 			<div className="space-x-2">
 				{!notification.isRead && (
 					<button
-						onClick={() => onMarkAsRead(notification.id)}
+						onClick={onMarkAsRead}
 						className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 focus:outline-none text-sm"
 					>
 						Mark as Read
 					</button>
 				)}
 				<button
-					onClick={() => onDelete(notification.id)}
+					onClick={onDelete}
 					className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none text-sm"
 				>
 					Delete
