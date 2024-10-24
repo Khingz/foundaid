@@ -6,9 +6,15 @@ import { toast } from "react-toastify";
 import { adminSideNavLinks } from "../../utils/navUtils";
 import { FaSignOutAlt } from "react-icons/fa";
 
-const SideNav = ({ isSidenavOpen }) => {
+const SideNav = ({ isSidenavOpen, toggleSidenav }) => {
 	const { logout } = useAuth();
 	const navigate = useNavigate();
+
+	const handleToggle = () => {
+		if (isSidenavOpen) {
+			toggleSidenav();
+		}
+	};
 
 	const handleLogout = () => {
 		logout();
@@ -30,6 +36,7 @@ const SideNav = ({ isSidenavOpen }) => {
 						<li key={link.name}>
 							<Link
 								to={link.url}
+								onClick={handleToggle}
 								className="flex justify-start items-center gap-2 px-4 py-4 hover:bg-gray-700 cursor-pointer my-4"
 							>
 								{link.icon} {link.name}

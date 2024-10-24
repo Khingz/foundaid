@@ -16,3 +16,16 @@ export const emailSubscribe = async (credentials) => {
 		return { error: true, message: errorMsg || "An unknown error occurred" };
 	}
 };
+
+export const fetchSubscribers = async () => {
+	try {
+		const response = await axios.get(`${API_BASE_URL}`);
+		if (response.status !== 200) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+		return response.data;
+	} catch (error) {
+		const errorMsg = error.response.data.message;
+		return { error: true, message: errorMsg || "An unknown error occurred" };
+	}
+}

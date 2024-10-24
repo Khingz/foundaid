@@ -15,6 +15,11 @@ const AdminLayout = () => {
 		setSidenavOpen(!isSidenavOpen);
 	};
 
+	const layoutProps = {
+		toggleSidenav,
+		isSidenavOpen,
+	};
+
 	return (
 		<div className="w-screen">
 			{!hideDashboardNavRoutes.includes(location.pathname) && (
@@ -23,11 +28,11 @@ const AdminLayout = () => {
 
 			<div className="flex mt-[72px]">
 				{!hideDashboardNavRoutes.includes(location.pathname) && (
-					<SideNav isSidenavOpen={isSidenavOpen} />
+					<SideNav isSidenavOpen={isSidenavOpen} toggleSidenav={toggleSidenav} />
 				)}
 
 				<main className="flex-1 p-4 mt-2 md:ml-64">
-					<Outlet />
+					<Outlet context={layoutProps} />
 				</main>
 			</div>
 		</div>
