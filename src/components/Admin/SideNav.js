@@ -17,7 +17,7 @@ const SideNav = ({ isSidenavOpen }) => {
 	};
 	return (
 		<div
-			className={`bg-customBlue text-white w-64 h-screen fixed top-0 left-0 z-40 transform transition-transform duration-300 ease-in-out mt-[72px] ${
+			className={`bg-customBlue text-white w-64 min-h-screen overflow-y-auto fixed top-0 left-0 z-40 transform transition-transform duration-300 ease-in-out mt-[72px] ${
 				isSidenavOpen ? "translate-x-0" : "-translate-x-full"
 			} md:translate-x-0`}
 		>
