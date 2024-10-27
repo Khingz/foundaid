@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NotificationItem from "./NotificationItem";
 import DotSpinner from "../Spinner";
 import { useUserNofication } from "../../hooks/useNotification";
@@ -10,9 +10,9 @@ const Notification = () => {
 		fetchNotifications,
 		markNotificationAsRead,
 		deleteNotification,
-		markAllAsRead
+		markAllAsRead,
+		loading,
 	} = useUserNofication();
-	const [loading, setLoading] = useState(false);
 
 	const user_id = getItemFromLocalStorage("user")?.user?._id;
 
@@ -29,9 +29,7 @@ const Notification = () => {
 	};
 
 	const loadMoreNotifications = () => {
-		setLoading(true);
 		fetchNotifications(notifications?.currentPage + 1);
-		setLoading(false);
 	};
 
 	return (
@@ -46,42 +44,54 @@ const Notification = () => {
 				</button>
 			</div>
 
-			<ul className="divide-y divide-gray-200">
-				{notifications && notifications.data.length > 0 ? (
-					notifications.data.map((notification, index) => (
-						<NotificationItem
-							key={index}
-							notification={notification}
-							onMarkAsRead={() =>
-								handleMarkAsRead(notification?.notification?._id, user_id)
-							}
-							onDelete={() =>
-								handleDeleteNotification(
-									notification?.notification?._id,
-									user_id
-								)
-							}
-						/>
-					))
-				) : (
-					<li className="text-gray-200 text-center py-4">No notifications</li>
-				)}
-			</ul>
-
-			<div className="px-6 py-4">
+			<div>
 				{loading ? (
-					<DotSpinner />
+					<div className="my-4">
+						<DotSpinner />
+					</div>
 				) : (
-					<button
-						onClick={loadMoreNotifications}
-						className={`w-full ${
-							notifications?.currentPage >= notifications?.totalPages
-								? "bg-gray-300 cursor-not-allowed"
-								: "bg-customBlue hover:bg-blue-400"
-						} text-white px-3 py-2 rounded focus:outline-none`}
-					>
-						Load More
-					</button>
+					<>
+						<ul className="divide-y divide-gray-200">
+							{notifications && notifications.data.length > 0 ? (
+								notifications.data.map((notification, index) => (
+									<NotificationItem
+										key={index}
+										notification={notification}
+										onMarkAsRead={() =>
+											handleMarkAsRead(notification?.notification?._id, user_id)
+										}
+										onDelete={() =>
+											handleDeleteNotification(
+												notification?.notification?._id,
+												user_id
+											)
+										}
+									/>
+								))
+							) : (
+								<li className="text-gray-200 text-center py-4">
+									No notifications
+								</li>
+							)}
+						</ul>
+
+						<div className="px-6 py-4">
+							{loading ? (
+								<DotSpinner />
+							) : (
+								<button
+									onClick={loadMoreNotifications}
+									className={`w-full ${
+										notifications?.currentPage >= notifications?.totalPages
+											? "bg-gray-300 cursor-not-allowed"
+											: "bg-customBlue hover:bg-blue-400"
+									} text-white px-3 py-2 rounded focus:outline-none`}
+								>
+									Load More
+								</button>
+							)}
+						</div>
+					</>
 				)}
 			</div>
 		</div>

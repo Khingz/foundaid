@@ -8,10 +8,12 @@ export const NotificationContext = createContext();
 export const NotificationProvider = ({ children }) => {
 	const [notifications, setNotifications] = useState(null);
 	const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const socket = useSocket();
 
 	const fetchNotifications = async (page = 1) => {
 		try {
+			setLoading(true);
 			const notif = await fetchUserNotifications({ page });
 			if (notif.error) {
 				throw new Error(notif.message);
@@ -29,6 +31,8 @@ export const NotificationProvider = ({ children }) => {
 			}));
 		} catch (error) {
 			console.log(error);
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -137,6 +141,7 @@ export const NotificationProvider = ({ children }) => {
 				deleteNotification,
 				markNotificationAsRead,
 				markAllAsRead,
+				loading,
 			}}
 		>
 			{children}
